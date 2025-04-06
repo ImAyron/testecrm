@@ -84,7 +84,7 @@
 				@endguest
 			</div>
 			<div class="col-md-6 text-center">
-				<img src="/img/principal.jpg" class="img-fluid rounded shadow" alt="CRM dashboard illustration">
+				<img src="/img/evo.png" class="img-fluid rounded shadow" alt="CRM dashboard illustration">
 			</div>
 		</div>
 	</div>
