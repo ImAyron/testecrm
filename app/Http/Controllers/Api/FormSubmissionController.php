@@ -13,23 +13,17 @@ class FormSubmissionController extends Controller
     public function index()
     {
         try {
-            $submissions = FormSubmission::orderBy('created_at', 'desc')->get();
-            
-            return response()->json([
-                'success' => true,
-                'message' => 'Lista de submissões',
-                'data' => $submissions
-            ]);
-            
+            $submissions = FormSubmission::orderBy('created_at', 'desc')->paginate(10);
+    
+            return view('submissions.index', compact('submissions'));
+    
         } catch (\Exception $e) {
             Log::error('Error fetching submissions: ' . $e->getMessage());
-            
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to retrieve submissions'
-            ], 500);
+    
+            return view('submissions.index')->with('error', 'Failed to retrieve submissions');
         }
     }
+    
 
     public function store(Request $request)
     {
